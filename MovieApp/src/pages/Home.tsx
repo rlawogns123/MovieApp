@@ -1,9 +1,41 @@
 import React from "react";
+import { useQuery } from "react-query";
+import {
+  getPopularMovie,
+  getTopRatedMovie,
+  getUpcomingMovie,
+} from "@/api/movieApi";
+
+import PopularMovie from "@/components/home/PopularMovie";
+import TopRatedMovie from "@/components/home/TopRatedMovie";
+import UpcomingMovie from "@/components/home/UpcomingMovie";
+
+import styled from "styled-components";
 
 type Props = {};
 
+export interface MovieDetail {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string;
+  vote_average: number;
+  backdrop_path: string;
+  release_data: string;
+}
+
 const Home = (props: Props) => {
-  return <div>Home</div>;
+  return (
+    <MovieList>
+      <PopularMovie />
+      <TopRatedMovie />
+      <UpcomingMovie />
+    </MovieList>
+  );
 };
 
 export default Home;
+
+const MovieList = styled.div`
+  // display: flex;
+`;

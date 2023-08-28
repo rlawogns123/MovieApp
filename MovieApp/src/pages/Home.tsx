@@ -19,9 +19,10 @@ export interface MovieDetail {
   title: string;
   overview: string;
   poster_path: string;
+  vote_count: number;
   vote_average: number;
   backdrop_path: string;
-  release_data: string;
+  release_date: string;
 }
 
 const Home = (props: Props) => {

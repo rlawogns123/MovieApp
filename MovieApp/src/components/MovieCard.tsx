@@ -1,12 +1,12 @@
 import React from "react";
-import { MovieDetail } from "@/components/home/PopularMovie";
+import { MovieDetail } from "@/pages/Home";
 
 type MovieProps = {
   movieData: MovieDetail;
 };
 
 const MovieCard = ({ movieData }: MovieProps) => {
-  const { id, title, poster_path } = movieData;
+  const { id, title, poster_path, release_date } = movieData;
   return (
     <div>
       {poster_path ? (

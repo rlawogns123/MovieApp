@@ -2,21 +2,11 @@ import React from "react";
 import { getTopRatedMovie } from "@/api/movieApi";
 import { useQuery } from "react-query";
 import MovieCard from "@/components/MovieCard";
+import { MovieDetail } from "@/pages/Home";
 
 import styled from "styled-components";
 
 type Props = {};
-
-export interface MovieDetail {
-  id: number;
-  title: string;
-  overview: string;
-  poster_path: string;
-  vote_average: number;
-  vote_count: number;
-  backdrop_path: string;
-  release_date: string;
-}
 
 const TopRatedMovie = (props: Props) => {
   const { isLoading, data, isError } = useQuery("top_rated", () =>

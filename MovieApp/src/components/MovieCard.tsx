@@ -1,5 +1,6 @@
 import React from "react";
-import { MovieDetail } from "@/pages/Home";
+import { MovieDetail } from "@/pages/Home/Home";
+import { Link } from "react-router-dom";
 
 type MovieProps = {
   movieData: MovieDetail;
@@ -8,7 +9,7 @@ type MovieProps = {
 const MovieCard = ({ movieData }: MovieProps) => {
   const { id, title, poster_path, release_date } = movieData;
   return (
-    <div>
+    <Link to={`/${id}`}>
       {poster_path ? (
         <img
           src={`https://image.tmdb.org/t/p/original/${poster_path}`}
@@ -18,7 +19,7 @@ const MovieCard = ({ movieData }: MovieProps) => {
         <h1>No Image</h1>
       )}
       {<h4>{title}</h4>}
-    </div>
+    </Link>
   );
 };
 

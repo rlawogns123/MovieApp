@@ -1,16 +1,16 @@
 import React from "react";
-import { getUpcomingMovie } from "@/api/movieApi";
+import { getTopRatedMovie } from "@/api/movieApi";
 import { useQuery } from "react-query";
 import MovieCard from "@/components/MovieCard";
-import { MovieDetail } from "@/pages/Home";
+import { MovieDetail } from "@/pages/Home/Home";
 
 import styled from "styled-components";
 
 type Props = {};
 
-const UpcomingMovie = (props: Props) => {
-  const { isLoading, data, isError } = useQuery("upcoming", () =>
-    getUpcomingMovie("1")
+const TopRatedMovie = (props: Props) => {
+  const { isLoading, data, isError } = useQuery("top_rated", () =>
+    getTopRatedMovie("1")
   );
 
   if (isLoading) <h1>Loading...</h1>;
@@ -29,7 +29,7 @@ const UpcomingMovie = (props: Props) => {
   );
 };
 
-export default UpcomingMovie;
+export default TopRatedMovie;
 
 const MovieList = styled.div`
   display: flex;

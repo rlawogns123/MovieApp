@@ -3,7 +3,7 @@ import { useInfiniteQuery } from "react-query";
 import { getUpcomingMovie } from "@/api/movieApi";
 import InfiniteScroll from "react-infinite-scroller";
 import MovieCard from "@/components/MovieCard";
-import { MovieDetail } from "./Home";
+import { MovieDetail } from "./Home/Home";
 
 type Props = {};
 

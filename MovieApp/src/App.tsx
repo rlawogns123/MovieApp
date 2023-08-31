@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "@/components/Header";
 import Home from "@/pages/Home/Home";
-import PopularMovie from "@/pages/PopularMoviePage";
-import TopRatedMovie from "@/pages/TopRatedMoviePage";
-import UpcomingMovie from "./pages/UpcomingMoviePage";
-import MovieDetail from "./pages/Detail/MovieDetailPage";
+import PopularMoviePage from "@/pages/PopularMoviePage";
+import TopRatedMoviePage from "@/pages/TopRatedMoviePage";
+import UpcomingMoviePage from "@/pages/UpcomingMoviePage";
+import MovieDetailPage from "@/pages/Detail/MovieDetailPage";
+import SearchMoviePage from "@/pages/Search/SearchMoviePage";
 
 function App() {
   return (
@@ -12,10 +13,11 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/popular" element={<PopularMovie />} />
-        <Route path="/top_rated" element={<TopRatedMovie />} />
-        <Route path="/upcoming" element={<UpcomingMovie />} />
-        <Route path="/:id" element={<MovieDetail />} />
+        <Route path="/popular" element={<PopularMoviePage />} />
+        <Route path="/top_rated" element={<TopRatedMoviePage />} />
+        <Route path="/upcoming" element={<UpcomingMoviePage />} />
+        <Route path="/:id" element={<MovieDetailPage />} />
+        <Route path="/search" element={<SearchMoviePage />} />
       </Routes>
     </Router>
   );

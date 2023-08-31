@@ -1,18 +1,22 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { useLocation } from "react-router";
 import { useInfiniteQuery } from "react-query";
-import { getUpcomingMovie } from "@/api/movieApi";
+import { getSearchMovie } from "@/api/movieApi";
 import InfiniteScroll from "react-infinite-scroller";
 import MovieCard from "@/components/MovieCard";
-import { MovieDetail } from "./Home/Home";
+import { MovieDetail } from "@/pages/Home/Home";
 
 type Props = {};
 
-const UpcomingMoviePage = (props: Props) => {
-  const isUpcoming: boolean = true;
+const SearchMoviePage = (props: Props) => {
+  const {
+    state: { searchWord },
+  } = useLocation();
+
   const { isLoading, isError, data, fetchNextPage, hasNextPage } =
     useInfiniteQuery(
-      ["upcoming"],
-      ({ pageParam = 1 }) => getUpcomingMovie(pageParam),
+      ["search", searchWord],
+      ({ pageParam = 1 }) => getSearchMovie(searchWord, pageParam),
       {
         getNextPageParam: (lastPage) => {
           let page = lastPage.page;
@@ -28,7 +32,7 @@ const UpcomingMoviePage = (props: Props) => {
   if (isError) <h1>Error ㅠㅠ</h1>;
 
   return (
-    <InfiniteScroll loadMore={() => fetchNextPage()} hasMore={hasNextPage}>
+    <InfiniteScroll loadMore={() => fetchNextPage} hasMore={hasNextPage}>
       <div>
         {data?.pages?.map((page) => {
           return page?.results.map((movie: MovieDetail) => (
@@ -42,4 +46,4 @@ const UpcomingMoviePage = (props: Props) => {
   );
 };
 
-export default UpcomingMoviePage;
+export default SearchMoviePage;

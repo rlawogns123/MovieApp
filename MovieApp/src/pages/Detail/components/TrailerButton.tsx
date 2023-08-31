@@ -18,7 +18,7 @@ const TrailerButton = (props: Props) => {
   if (isLoading) <h1>Loading...</h1>;
   if (isError) <h1>Error ㅠㅠ</h1>;
 
-  const trailerKey: string = data?.results[0].key;
+  const trailerKey: string = data?.results[0]?.key;
 
   return (
     <div>

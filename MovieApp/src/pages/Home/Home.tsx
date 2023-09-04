@@ -1,10 +1,6 @@
 import React from "react";
-import { useQuery } from "react-query";
-import {
-  getPopularMovie,
-  getTopRatedMovie,
-  getUpcomingMovie,
-} from "@/api/movieApi";
+
+import { Link } from "react-router-dom";
 
 import PopularMovie from "@/pages/Home/components/PopularMovie";
 import TopRatedMovie from "@/pages/Home/components/TopRatedMovie";
@@ -28,16 +24,41 @@ export interface MovieDetail {
 
 const Home = (props: Props) => {
   return (
-    <MovieList>
+    <HomeContainer>
+      <KategorieWrapper>
+        <h3>PopularMovie</h3>
+        <NavbarLink to={"/popular"}>전체 보기</NavbarLink>
+      </KategorieWrapper>
       <PopularMovie />
+      <KategorieWrapper>
+        <h3>Top Rated</h3>
+        <NavbarLink to={"/top_rated"}>전체 보기</NavbarLink>
+      </KategorieWrapper>
       <TopRatedMovie />
+      <KategorieWrapper>
+        <h3>Upcoming</h3>
+        <NavbarLink to={"/upcoming"}>전체 보기</NavbarLink>
+      </KategorieWrapper>
       <UpcomingMovie />
-    </MovieList>
+    </HomeContainer>
   );
 };
 
 export default Home;
 
-const MovieList = styled.div`
-  // display: flex;
+const HomeContainer = styled.div`
+  margin-left: 2rem;
+`;
+
+const KategorieWrapper = styled.div`
+  margin-left: 1rem;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const NavbarLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
 `;

@@ -5,6 +5,8 @@ import InfiniteScroll from "react-infinite-scroller";
 import MovieCard from "@/components/MovieCard";
 import { MovieDetail } from "./Home/Home";
 
+import styled from "styled-components";
+
 type Props = {};
 
 const TopRatedMoviePage = (props: Props) => {
@@ -27,18 +29,36 @@ const TopRatedMoviePage = (props: Props) => {
   if (isError) <h1>Error</h1>;
 
   return (
-    <InfiniteScroll loadMore={() => fetchNextPage()} hasMore={hasNextPage}>
-      <Fragment>
-        {data?.pages?.map((page) => {
-          return page?.results.map((movie: MovieDetail) => (
-            <Fragment key={movie.id}>
-              <MovieCard movieData={movie} />
-            </Fragment>
-          ));
-        })}
-      </Fragment>
-    </InfiniteScroll>
+    <Fragment>
+      <h2
+        style={{
+          marginLeft: "25px",
+          marginBottom: "50px",
+          textAlign: "center",
+        }}
+      >
+        Top Rated Movie
+      </h2>
+      <InfiniteScroll loadMore={() => fetchNextPage()} hasMore={hasNextPage}>
+        <MovieList>
+          {data?.pages?.map((page) => {
+            return page?.results.map((movie: MovieDetail) => (
+              <Fragment key={movie.id}>
+                <MovieCard movieData={movie} />
+              </Fragment>
+            ));
+          })}
+        </MovieList>
+      </InfiniteScroll>
+    </Fragment>
   );
 };
 
 export default TopRatedMoviePage;
+
+const MovieList = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+`;

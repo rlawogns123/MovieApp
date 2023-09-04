@@ -3,7 +3,8 @@ import { getMovieTrailer } from "@/api/movieDetail";
 import { useQuery } from "react-query";
 import { useParams } from "react-router";
 import TrailerModal from "./TrailerModal";
-import ReactPlayer from "react-player";
+
+import styled from "styled-components";
 
 type Props = {};
 
@@ -21,7 +22,7 @@ const TrailerButton = (props: Props) => {
   const trailerKey: string = data?.results[0]?.key;
 
   return (
-    <div>
+    <ButtonWrapper>
       {trailerKey && (
         <button onClick={() => setOpenModal(true)}>트레일러 보기</button>
       )}
@@ -30,8 +31,21 @@ const TrailerButton = (props: Props) => {
         open={openModal && trailerKey}
         onClose={() => setOpenModal(false)}
       />
-    </div>
+    </ButtonWrapper>
   );
 };
 
 export default TrailerButton;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    width: 100%;
+    height: 3rem;
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+`;

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useLocation } from "react-router";
 import { useInfiniteQuery } from "react-query";
 import { getSearchMovie } from "@/api/movieApi";
 import InfiniteScroll from "react-infinite-scroller";
 import MovieCard from "@/components/MovieCard";
 import { MovieDetail } from "@/pages/Home/Home";
+
+import styled from "styled-components";
 
 type Props = {};
 
@@ -33,17 +35,24 @@ const SearchMoviePage = (props: Props) => {
 
   return (
     <InfiniteScroll loadMore={() => fetchNextPage} hasMore={hasNextPage}>
-      <div>
+      <MovieList>
         {data?.pages?.map((page) => {
           return page?.results.map((movie: MovieDetail) => (
-            <div key={movie.id}>
+            <Fragment key={movie.id}>
               <MovieCard movieData={movie} />
-            </div>
+            </Fragment>
           ));
         })}
-      </div>
+      </MovieList>
     </InfiniteScroll>
   );
 };
 
 export default SearchMoviePage;
+
+const MovieList = styled.div`
+  width: 100vw;
+  display: flex;
+  // justify-content: space-evenly;
+  flex-wrap: wrap;
+`;

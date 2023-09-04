@@ -12,8 +12,8 @@ type TrailerProps = {
 const TrailerModal = ({ trailerKey, open, onClose }: TrailerProps) => {
   if (!open) return null;
   return (
-    <div onClick={onClose}>
-      <div className="modalContainer">
+    <ModalWrapper onClick={onClose}>
+      <Player>
         <ReactPlayer
           url={`https://www.youtube.com/watch?v=${trailerKey}`}
           width="100%"
@@ -21,9 +21,27 @@ const TrailerModal = ({ trailerKey, open, onClose }: TrailerProps) => {
           playing
           controls
         />
-      </div>
-    </div>
+      </Player>
+    </ModalWrapper>
   );
 };
 
 export default TrailerModal;
+
+const ModalWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+
+const Player = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 800px;
+  width: 100%;
+  max-width: 1100px;
+  transform: translate(-50%, -50%);
+`;

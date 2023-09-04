@@ -3,6 +3,8 @@ import { getMovieCredits } from "@/api/movieDetail";
 import { useQuery } from "react-query";
 import { useParams } from "react-router";
 
+import styled from "styled-components";
+
 type Props = {};
 
 interface CastInfo {
@@ -18,16 +20,26 @@ const Cast = (props: Props) => {
   const castInfo = data?.cast.slice(0, 5);
 
   return (
-    <div>
+    <CastList>
       {castInfo?.map((cast: any) => (
-        <div key={cast.id}>
+        <CastCard key={cast.id}>
           <img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} />
           <p>{cast.name}</p>
           <p>{cast.character} 역</p>
-        </div>
+        </CastCard>
       ))}
-    </div>
+    </CastList>
   );
 };
 
 export default Cast;
+
+const CastList = styled.div`
+  display: flex;
+`;
+
+const CastCard = styled.div`
+  margin-top: 1rem;
+  margin-right: 2rem;
+  text-align: center;
+`;

@@ -7,6 +7,8 @@ import UpcomingMoviePage from "@/pages/UpcomingMoviePage";
 import MovieDetailPage from "@/pages/Detail/MovieDetailPage";
 import SearchMoviePage from "@/pages/Search/SearchMoviePage";
 
+import "./App.css";
+
 function App() {
   return (
     <Router>

@@ -27,17 +27,17 @@ const Home = (props: Props) => {
     <HomeContainer>
       <KategorieWrapper>
         <h3>PopularMovie</h3>
-        <NavbarLink to={"/popular"}>전체 보기</NavbarLink>
+        <NavbarLink to={"/popular"}>더 보기</NavbarLink>
       </KategorieWrapper>
       <PopularMovie />
       <KategorieWrapper>
         <h3>Top Rated</h3>
-        <NavbarLink to={"/top_rated"}>전체 보기</NavbarLink>
+        <NavbarLink to={"/top_rated"}>더 보기</NavbarLink>
       </KategorieWrapper>
       <TopRatedMovie />
       <KategorieWrapper>
         <h3>Upcoming</h3>
-        <NavbarLink to={"/upcoming"}>전체 보기</NavbarLink>
+        <NavbarLink to={"/upcoming"}>더 보기</NavbarLink>
       </KategorieWrapper>
       <UpcomingMovie />
     </HomeContainer>
@@ -51,7 +51,7 @@ const HomeContainer = styled.div`
 `;
 
 const KategorieWrapper = styled.div`
-  margin-left: 1rem;
+  margin-left: 3rem;
   width: 95%;
   display: flex;
   justify-content: space-between;

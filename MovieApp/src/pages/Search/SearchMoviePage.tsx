@@ -53,6 +53,5 @@ export default SearchMoviePage;
 const MovieList = styled.div`
   width: 100vw;
   display: flex;
-  // justify-content: space-evenly;
   flex-wrap: wrap;
 `;

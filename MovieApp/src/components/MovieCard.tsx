@@ -31,7 +31,8 @@ const Card = styled.div`
   &:hover {
     transform: translateY(-5px);
   }
-  margin: 0 5rem 5rem 1rem;
+  margin: 0 2rem 5rem 2rem;
+  width: 300px;
 `;
 
 const PosterImg = styled.img`

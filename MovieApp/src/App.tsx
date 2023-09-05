@@ -6,6 +6,7 @@ import TopRatedMoviePage from "@/pages/TopRatedMoviePage";
 import UpcomingMoviePage from "@/pages/UpcomingMoviePage";
 import MovieDetailPage from "@/pages/Detail/MovieDetailPage";
 import SearchMoviePage from "@/pages/Search/SearchMoviePage";
+import ScrollUpButton from "@/components/ScrollUpButton";
 
 import "./App.css";
 
@@ -13,6 +14,7 @@ function App() {
   return (
     <Router>
       <Header />
+      <ScrollUpButton />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/popular" element={<PopularMoviePage />} />

@@ -60,6 +60,6 @@ export default UpcomingMoviePage;
 const MovieList = styled.div`
   width: 100vw;
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
+  margin-left: 2rem;
 `;

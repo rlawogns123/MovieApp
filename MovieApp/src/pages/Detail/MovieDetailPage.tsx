@@ -40,7 +40,7 @@ const MovieDetailPage = (props: Props) => {
         </p>
         <p>
           {data?.genres?.map((item: any) => (
-            <span key={item.id}>{item.name}, </span>
+            <span key={item.id}>{item.name} </span>
           ))}
         </p>
         <p>{data?.overview}</p>

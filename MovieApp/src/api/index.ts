@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "https://api.themoviedb.org/3";
-const API_KEY = "f875e5e5c00e2deee78451d7c184be11";
+const BASE_URL = import.meta.env.VITE_TMDB_BASE_URL;
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 export const instance = axios.create({
   baseURL: BASE_URL,

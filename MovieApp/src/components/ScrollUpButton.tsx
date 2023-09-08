@@ -25,20 +25,12 @@ const ScrollUpButton = (props: Props) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // return isScroll ? (
-  //   <ScrollUpWrapper>
-  //     <button onClick={scrollToTop}>TOP</button>
-  //   </ScrollUpWrapper>
-  // ) : (
-  //   <></>
-  // );
-
-  return (
-    isScroll && (
-      <ScrollUpWrapper>
-        <button onClick={scrollToTop}>TOP</button>
-      </ScrollUpWrapper>
-    )
+  return isScroll ? (
+    <ScrollUpWrapper>
+      <button onClick={scrollToTop}>TOP</button>
+    </ScrollUpWrapper>
+  ) : (
+    <></>
   );
 };
 

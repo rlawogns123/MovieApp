@@ -39,9 +39,27 @@ const SearchInput = styled.input`
   margin-right: 1rem;
   color: black;
   padding: 5px;
+
+  @media screen and (max-width: 1023px) {
+    width: 100px;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100px;
+  }
 `;
 
 const SearchButton = styled.button`
   width: 50px;
   height: 30px;
+
+  @media screen and (max-width: 1023px) {
+    width: 40px;
+    font-size: 5px;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 50px;
+    height: 30px;
+  }
 `;

@@ -13,11 +13,13 @@ const MovieCard = ({ movieData }: MovieProps) => {
   return (
     <Card>
       <LinkDetail to={`/${id}`}>
-        {poster_path ? (
-          <PosterImg src={`https://image.tmdb.org/t/p/w500/${poster_path}`} />
-        ) : (
-          <h1>No Image</h1>
-        )}
+        <PosterWrapper>
+          {poster_path ? (
+            <PosterImg src={`https://image.tmdb.org/t/p/w500/${poster_path}`} />
+          ) : (
+            <h1>No Image</h1>
+          )}
+        </PosterWrapper>
         {<h4>{title}</h4>}
       </LinkDetail>
     </Card>
@@ -33,6 +35,12 @@ const Card = styled.div`
   }
   margin: 0 2rem 5rem 2rem;
   width: 300px;
+`;
+
+const PosterWrapper = styled.div`
+  width: 30vh;
+  height: 40vh;
+  margin-bottom: 10px;
 `;
 
 const PosterImg = styled.img`

@@ -26,13 +26,14 @@ const MovieDetailPage = (props: Props) => {
         {data?.poster_path ? (
           <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} />
         ) : (
-          <h1>No Image</h1>
+          // <h1>No Image</h1>
+          ""
         )}
         <TrailerButton />
       </PosterContainer>
       <InfoContainer>
         <h2>
-          {data?.title} ({data?.release_date})
+          {data?.title} ({data?.release_date ? data?.release_date : "미정"})
         </h2>
         <h3>{data?.original_title}</h3>
         <p>

@@ -10,17 +10,17 @@ const Header = (props: Props) => {
   return (
     <HeaderContainer>
       <HomeLink to={"/"}>
-        <h2 style={{ textDecoration: "none" }}>Movie App</h2>
+        <h3 style={{ textDecoration: "none" }}>Movie App</h3>
       </HomeLink>
       <NavLinkContainer>
         <NavbarLink to={"/popular"}>
-          <h2>Popular</h2>
+          <h3>Popular</h3>
         </NavbarLink>
         <NavbarLink to={"/top_rated"}>
-          <h2>Top Rated</h2>
+          <h3>Top Rated</h3>
         </NavbarLink>
         <NavbarLink to={"/upcoming"}>
-          <h2>Upcoming</h2>
+          <h3>Upcoming</h3>
         </NavbarLink>
       </NavLinkContainer>
       <SearchBar />
@@ -40,7 +40,7 @@ const HeaderContainer = styled.header`
 
 const HomeLink = styled(Link)`
   margin-left: 3rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 300;
   color: white;
   text-decoration: none;
@@ -55,9 +55,13 @@ const NavLinkContainer = styled.div`
 const NavbarLink = styled(Link)`
   color: white;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 300;
   &:hover {
     transform: translateY(-5px);
+  }
+
+  @media screen and (max-width: 767px) {
+    display: none;
   }
 `;

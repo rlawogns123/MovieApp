@@ -1,20 +1,19 @@
 import React, { Fragment } from "react";
 import { useInfiniteQuery } from "react-query";
-import { getUpcomingMovie } from "@/api/movieApi";
+import { getTopRatedMovie } from "@/api/movieApi";
 import InfiniteScroll from "react-infinite-scroller";
-import MovieCard from "@/components/MovieCard";
-import { MovieDetail } from "./Home/Home";
+import MovieCard from "@/pages/TopRated/MovieCard";
+import { MovieDetail } from "../Home/Home";
 
 import styled from "styled-components";
 
 type Props = {};
 
-const UpcomingMoviePage = (props: Props) => {
-  const isUpcoming: boolean = true;
+const TopRatedMoviePage = (props: Props) => {
   const { isLoading, isError, data, fetchNextPage, hasNextPage } =
     useInfiniteQuery(
-      ["upcoming"],
-      ({ pageParam = 1 }) => getUpcomingMovie(pageParam),
+      ["top_rated"],
+      ({ pageParam = 1 }) => getTopRatedMovie(pageParam),
       {
         getNextPageParam: (lastPage) => {
           let page = lastPage.page;
@@ -27,7 +26,7 @@ const UpcomingMoviePage = (props: Props) => {
     );
 
   if (isLoading) <h1>Loading...</h1>;
-  if (isError) <h1>Error ㅠㅠ</h1>;
+  if (isError) <h1>Error</h1>;
 
   return (
     <Fragment>
@@ -38,7 +37,7 @@ const UpcomingMoviePage = (props: Props) => {
           textAlign: "center",
         }}
       >
-        Upcoming Movie
+        Top Rated Movie
       </h2>
       <InfiniteScroll loadMore={() => fetchNextPage()} hasMore={hasNextPage}>
         <MovieList>
@@ -55,11 +54,11 @@ const UpcomingMoviePage = (props: Props) => {
   );
 };
 
-export default UpcomingMoviePage;
+export default TopRatedMoviePage;
 
 const MovieList = styled.div`
   width: 100vw;
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-left: 2rem;
 `;

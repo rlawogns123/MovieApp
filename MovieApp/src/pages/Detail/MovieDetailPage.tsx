@@ -32,9 +32,7 @@ const MovieDetailPage = (props: Props) => {
         <TrailerButton />
       </PosterContainer>
       <InfoContainer>
-        <h2>
-          {data?.title} ({data?.release_date ? data?.release_date : "미정"})
-        </h2>
+        <h2>{data?.title}</h2>
         <h3>{data?.original_title}</h3>
         <p>
           {`⭐${data?.vote_average}`} {`🤩${data?.vote_count}`}

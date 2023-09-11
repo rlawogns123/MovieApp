@@ -3,7 +3,7 @@ import { useLocation } from "react-router";
 import { useInfiniteQuery } from "react-query";
 import { getSearchMovie } from "@/api/movieApi";
 import InfiniteScroll from "react-infinite-scroller";
-import MovieCard from "@/components/MovieCard";
+import MovieCard from "@/pages/Search/MovieCard";
 import { MovieDetail } from "@/pages/Home/Home";
 
 import styled from "styled-components";

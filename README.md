@@ -38,7 +38,7 @@
 
 ## 실행 화면
 
-![MovieAppGIf](https://github.com/rlawogns123/MovieApp/assets/73879034/c0ac5010-6c9c-40fa-b6a9-182f9e28aec7)
+![MovieAppGIf](https://github.com/rlawogns123/MovieApp/assets/73879034/4989be14-45c7-4050-8b21-191735853e8f)
 
 <br/>
 <br/>

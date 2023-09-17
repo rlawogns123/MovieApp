@@ -11,7 +11,7 @@ const SearchBar = (props: Props) => {
 
   const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("/search", { state: { searchWord } });
+    navigate(`/search/${searchWord}`);
     setSearchWord("");
   };
 

@@ -7,15 +7,14 @@ import styled from "styled-components";
 
 type Props = {};
 
-interface CastInfo {
-  name: string;
-}
-
 const Cast = (props: Props) => {
   const { id } = useParams() as { id: string };
   const { isLoading, data, isError } = useQuery(["cast"], () =>
     getMovieCredits(id)
   );
+
+  if (isLoading) <h1>Loading...</h1>;
+  if (isError) <h1>Error ㅠㅠ</h1>;
 
   const castInfo = data?.cast.slice(0, 5);
 

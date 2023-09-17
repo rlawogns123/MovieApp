@@ -1,6 +1,5 @@
 import React from "react";
 import { getMovieDetail } from "@/api/movieDetail";
-import { MovieDetail } from "../Home/Home";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import TrailerButton from "./components/TrailerButton";
@@ -26,7 +25,6 @@ const MovieDetailPage = (props: Props) => {
         {data?.poster_path ? (
           <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} />
         ) : (
-          // <h1>No Image</h1>
           ""
         )}
         <TrailerButton />

@@ -9,7 +9,7 @@ type MovieProps = {
 };
 
 const MovieCard = ({ movieData }: MovieProps) => {
-  const { id, title, poster_path, release_date } = movieData;
+  const { id, title, poster_path } = movieData;
   return (
     <Card>
       <LinkDetail to={`/${id}`}>

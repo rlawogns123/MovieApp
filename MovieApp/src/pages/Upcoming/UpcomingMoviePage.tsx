@@ -10,7 +10,6 @@ import styled from "styled-components";
 type Props = {};
 
 const UpcomingMoviePage = (props: Props) => {
-  const isUpcoming: boolean = true;
   const { isLoading, isError, data, fetchNextPage, hasNextPage } =
     useInfiniteQuery(
       ["upcoming"],

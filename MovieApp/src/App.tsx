@@ -21,7 +21,7 @@ function App() {
         <Route path="/top_rated" element={<TopRatedMoviePage />} />
         <Route path="/upcoming" element={<UpcomingMoviePage />} />
         <Route path="/:id" element={<MovieDetailPage />} />
-        <Route path="/search" element={<SearchMoviePage />} />
+        <Route path="/search/:searchWord" element={<SearchMoviePage />} />
       </Routes>
     </Router>
   );

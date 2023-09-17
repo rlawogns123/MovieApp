@@ -1,19 +1,17 @@
 import React, { Fragment } from "react";
-import { useLocation } from "react-router";
 import { useInfiniteQuery } from "react-query";
 import { getSearchMovie } from "@/api/movieApi";
 import InfiniteScroll from "react-infinite-scroller";
 import MovieCard from "@/pages/Search/MovieCard";
 import { MovieDetail } from "@/pages/Home/Home";
+import { useParams } from "react-router-dom";
 
 import styled from "styled-components";
 
 type Props = {};
 
 const SearchMoviePage = (props: Props) => {
-  const {
-    state: { searchWord },
-  } = useLocation();
+  const { searchWord } = useParams() as { searchWord: string };
 
   const { isLoading, isError, data, fetchNextPage, hasNextPage } =
     useInfiniteQuery(

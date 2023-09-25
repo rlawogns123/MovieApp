@@ -1,14 +1,15 @@
-import express from "express";
-import mongoose from "mongoose";
-import path from "path";
-import User from "./router/User.js";
+const express = require("express");
+const mongoose = require("mongoose");
+const path = require("path");
+const User = require("./router/User");
+const cookieParser = require("cookie-parser");
 
 const server = express();
-const __dirname = path.resolve();
 
 server.use(express.static(path.join(__dirname, "../dist")));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+server.use(cookieParser());
 
 server.use("/api/user", User);
 

@@ -1,8 +1,8 @@
-import express from "express";
-import User from "../model/User.js";
-import jwt from "jsonwebtoken";
-import auth from "../middleware/auth.js";
-import bcrypt from "bcryptjs";
+const express = require("express");
+const User = require("../model/User");
+const jwt = require("jsonwebtoken");
+const auth = require("../middleware/auth");
+const bcrypt = require("bcryptjs");
 
 const router = express.Router();
 
@@ -43,48 +43,60 @@ router.post("/namecheck", (req, res) => {
 router.post("/signup", async (req, res) => {
   const { id, password, name } = req.body;
 
-  const user = new User({
-    id,
-    password,
-    name,
-  });
-
-  const salt = await bcrypt.genSalt(10);
-  user.password = await bcrypt.hash(password, salt);
-
-  await user
-    .save()
-    .then(() => {
-      res.status(200).json({ success: true });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json({ success: false });
+  try {
+    const user = new User({
+      id,
+      password,
+      name,
     });
 
-  // const payload = {
-  //   user: {
-  //     id: user.idm,
-  //   },
-  // };
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(password, salt);
 
-  // jwt.sign(payload, "jwtSecret", { expiresIn: "1h" }, (err, token) => {
-  //   if (err) {
-  //     return res.status(400).json({ success: false });
-  //   } else {
-  //     return res.send({ token });
-  //   }
-  // });
-});
-
-router.get("/auth", auth, async (req, res) => {
-  try {
-    const user = await User.findById(req.user.id).select("-password");
-    return res.json(user);
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send("Server error");
+    await user.save();
+    res.status(200).send("Success");
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
   }
 });
 
-export default router;
+router.post("/signin", (req, res) => {
+  const { id, password } = req.body;
+
+  User.findOne({ id: id })
+    .then((docs) => {
+      if (!docs) {
+        return res.json({
+          loginSuccess: false,
+          messsage: "입력하신 ID에 해당하는 유저가 없습니다.",
+        });
+      }
+
+      docs.comparePassword(password, (err, isMatch) => {
+        if (!isMatch)
+          return res.json({
+            loginSuccess: false,
+            messsage: "비밀번호가 틀렸습니다.",
+          });
+
+        docs.generateToken((err, user) => {
+          if (err) return res.status(400).send(err);
+          res.cookie("x_auth", user.token).status(200).send("Success");
+        });
+      });
+    })
+    .catch((err) => {
+      return res.status(400).send(err);
+    });
+});
+
+router.get("/logout", auth, (req, res) => {
+  console.log(req.user);
+  User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).send({ success: true });
+  });
+});
+
+module.exports = router;

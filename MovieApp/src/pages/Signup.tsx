@@ -10,8 +10,6 @@ const Signup = (props: Props) => {
   const [name, setName] = useState<string>("");
   const [idCheck, setIdCheck] = useState<boolean>(false);
   const [nameCheck, setNameCheck] = useState<boolean>(false);
-  const [validId, setValidId] = useState<string>("");
-  const [validName, setValidName] = useState<string>("");
   const [pwd, setPwd] = useState<string>("");
   const [pwdConfirm, setPwdConfirm] = useState<string>("");
   const [flag, setFlag] = useState<boolean>(false);
@@ -87,7 +85,7 @@ const Signup = (props: Props) => {
 
     axios.post("/api/user/signup", body).then((res) => {
       setFlag(false);
-      if (res.data.success) {
+      if (res.data === "Success") {
         alert("회원가입에 성공하였습니다.");
         navigate("/signin");
       } else {

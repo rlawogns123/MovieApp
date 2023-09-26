@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "@/pages/Search/components/SearchBar";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
 type Props = {};
 
 const Header = (props: Props) => {
+  const navigate = useNavigate();
+  const [flag, setFlag] = useState<boolean>(false);
+
+  useEffect(() => {
+    axios.get("/api/user/auth").then((res) => {
+      if (res.data.isAuth === true) setFlag(true);
+      else setFlag(false);
+    });
+  }, [flag]);
+
+  const logoutFunc = (e: any) => {
+    axios.get("/api/user/logout").then((res) => {
+      if (res.data.success === true) {
+        alert("로그아웃 되었습니다.");
+        setFlag(false);
+      }
+    });
+  };
+
   return (
     <HeaderContainer>
       <HomeLink to={"/"}>
@@ -23,12 +44,29 @@ const Header = (props: Props) => {
           <h3>Upcoming</h3>
         </NavbarLink>
       </NavLinkContainer>
-      <SearchBar />
+      <Right>
+        <SearchBar />
+        {flag ? (
+          <button onClick={(e) => logoutFunc(e)}>로그아웃</button>
+        ) : (
+          <SigninLink to={"/signin"}>로그인</SigninLink>
+        )}
+      </Right>
     </HeaderContainer>
   );
 };
 
 export default Header;
+
+const Right = styled.div`
+  display: flex;
+`;
+
+const SigninLink = styled(Link)`
+  margin-left: 15px;
+  text-decoration: none;
+  color: white;
+`;
 
 const HeaderContainer = styled.header`
   padding: 30px;

@@ -1,7 +1,7 @@
 const express = require("express");
-const User = require("../model/User");
+const { User } = require("../model/User");
 const jwt = require("jsonwebtoken");
-const auth = require("../middleware/auth");
+const { auth } = require("../middleware/auth");
 const bcrypt = require("bcryptjs");
 
 const router = express.Router();
@@ -91,12 +91,24 @@ router.post("/signin", (req, res) => {
     });
 });
 
-router.get("/logout", auth, (req, res) => {
-  console.log(req.user);
-  User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
-    if (err) return res.json({ success: false, err });
-    return res.status(200).send({ success: true });
+router.get("/auth", auth, (req, res) => {
+  res.status(200).json({
+    _id: req.user._id,
+    isAuth: true,
+    id: req.user.id,
+    name: req.user.name,
   });
+});
+
+router.get("/logout", auth, (req, res) => {
+  User.findOneAndUpdate({ _id: req.user._id }, { token: "" })
+    .then(() => {
+      res.clearCookie("x_auth");
+      return res.status(200).send({ success: true, logout: "로그아웃 완료" });
+    })
+    .catch((err) => {
+      res.json({ success: false, err });
+    });
 });
 
 module.exports = router;

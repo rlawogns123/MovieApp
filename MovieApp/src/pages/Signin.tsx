@@ -22,7 +22,6 @@ const Signin = (props: Props) => {
     };
 
     axios.post("/api/user/signin", body).then((res) => {
-      console.log(res);
       if (res.data === "Success") {
         alert("환영합니다");
         navigate("/");
@@ -41,12 +40,17 @@ const Signin = (props: Props) => {
       <div>
         비밀번호{" "}
         <input
-          type="text"
+          type="password"
           value={pwd}
           onChange={(e) => setPwd(e.target.value)}
         />
       </div>
-      <button>로그인</button>
+      <div>
+        <button>로그인</button>
+      </div>
+      <div>
+        <button onClick={() => navigate("/signup")}>회원가입</button>
+      </div>
     </form>
   );
 };

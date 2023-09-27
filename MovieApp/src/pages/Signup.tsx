@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import styled from "styled-components";
+
 type Props = {};
 
 const Signup = (props: Props) => {
@@ -95,51 +97,77 @@ const Signup = (props: Props) => {
   };
 
   return (
-    <>
-      <form onSubmit={nameCheckFunc}>
-        <div>
-          닉네임
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <button>중복 검사</button>
-        </div>
-      </form>
-      <form onSubmit={idCheckFunc}>
-        <div>
-          ID
-          <input
-            type="text"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-          />
-          <button>중복 검사</button>
-        </div>
-      </form>
+    <SignupForm>
       <div>
-        비밀번호(8자리 이상)
-        <input
-          type="password"
-          placeholder="8자리 이상"
-          minLength={6}
-          onChange={(e) => setPwd(e.target.value)}
-        />
+        <form onSubmit={nameCheckFunc}>
+          <div>
+            <InputWrapper
+              type="text"
+              value={name}
+              placeholder={" 닉네임"}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <CheckBtn>중복 검사</CheckBtn>
+          </div>
+        </form>
+        <form onSubmit={idCheckFunc}>
+          <div>
+            <InputWrapper
+              type="text"
+              value={id}
+              placeholder={" ID"}
+              onChange={(e) => setId(e.target.value)}
+            />
+            <CheckBtn>중복 검사</CheckBtn>
+          </div>
+        </form>
+        <div>
+          <InputWrapper
+            type="password"
+            placeholder="비밀번호 (6자리 이상)"
+            minLength={6}
+            onChange={(e) => setPwd(e.target.value)}
+          />
+        </div>
+        <div>
+          <InputWrapper
+            type="password"
+            placeholder="비밀번호 확인"
+            minLength={6}
+            onChange={(e) => setPwdConfirm(e.target.value)}
+          />
+        </div>
+        <form onSubmit={signupFunc}>
+          <SignupBtn>회원가입</SignupBtn>
+        </form>
       </div>
-      <div>
-        비밀번호 확인
-        <input
-          type="password"
-          minLength={6}
-          onChange={(e) => setPwdConfirm(e.target.value)}
-        />
-      </div>
-      <form onSubmit={signupFunc}>
-        <button>회원가입</button>
-      </form>
-    </>
+    </SignupForm>
   );
 };
 
 export default Signup;
+
+const SignupForm = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+`;
+
+const InputWrapper = styled.input`
+  width: 13rem;
+  height: 3rem;
+  border-radius: 5%;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+`;
+
+const SignupBtn = styled.button`
+  width: 13.5rem;
+  height: 2rem;
+`;
+
+const CheckBtn = styled.button`
+  width: 5rem;
+  height: 3rem;
+`;

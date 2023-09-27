@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import styled from "styled-components";
+
 type Props = {};
 
 const Signin = (props: Props) => {
@@ -32,27 +34,40 @@ const Signin = (props: Props) => {
   };
 
   return (
-    <form onSubmit={signinFunc}>
-      <div>
-        ID{" "}
-        <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
-      </div>
-      <div>
-        비밀번호{" "}
-        <input
-          type="password"
-          value={pwd}
-          onChange={(e) => setPwd(e.target.value)}
-        />
-      </div>
-      <div>
-        <button>로그인</button>
-      </div>
-      <div>
-        <button onClick={() => navigate("/signup")}>회원가입</button>
-      </div>
-    </form>
+    <SigninForm>
+      <form onSubmit={signinFunc}>
+        <div>
+          <input
+            type="text"
+            value={id}
+            placeholder={" ID"}
+            onChange={(e) => setId(e.target.value)}
+          />
+        </div>
+        <div>
+          <input
+            type="password"
+            value={pwd}
+            placeholder={" 비밀번호"}
+            onChange={(e) => setPwd(e.target.value)}
+          />
+        </div>
+        <div>
+          <button>로그인</button>
+        </div>
+        <div>
+          <button onClick={() => navigate("/signup")}>회원가입</button>
+        </div>
+      </form>
+    </SigninForm>
   );
 };
 
 export default Signin;
+
+const SigninForm = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+`;

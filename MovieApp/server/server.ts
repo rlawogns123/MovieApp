@@ -19,7 +19,7 @@ server.use(cookieParser());
 server.use("/api/user", User);
 server.use("/api/reple", Reple);
 
-server.listen(4000, () => {
+server.listen(5000, () => {
   mongoose
     .connect(MONGOURI)
     .then(() => console.log("MongoDB 연결 성공"))

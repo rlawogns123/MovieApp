@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import styled from "styled-components";
+
 type MovieProps = {
   movieId: string;
 };
 
 const RepleUpload = ({ movieId }: MovieProps) => {
-  const [uid, setUid] = useState<string>("");
+  const [name, setName] = useState<string>("");
   const [reple, setReple] = useState<string>("");
 
   useEffect(() => {
     axios.get("/api/user/auth").then((res) => {
-      if (res.data.isAuth === true) setUid(res.data._id);
+      if (res.data.isAuth === true) setName(res.data.name);
     });
-  });
+  }, []);
 
   const repleUploadFunc = (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,7 +26,7 @@ const RepleUpload = ({ movieId }: MovieProps) => {
 
     const body = {
       reple: reple,
-      uid: uid,
+      name: name,
       movieId: movieId,
     };
 
@@ -39,16 +41,34 @@ const RepleUpload = ({ movieId }: MovieProps) => {
   };
   return (
     <div>
-      <form onSubmit={repleUploadFunc}>
-        <input
-          type="text"
+      <RepleInputForm onSubmit={repleUploadFunc}>
+        <RepleInputArea
+          placeholder="댓글 입력"
           value={reple}
+          cols={50}
+          rows={3}
           onChange={(e) => setReple(e.target.value)}
         />
-        <button>입력</button>
-      </form>
+        <InputBtn>등록</InputBtn>
+      </RepleInputForm>
     </div>
   );
 };
 
 export default RepleUpload;
+
+const RepleInputForm = styled.form`
+  margin-top: 4rem;
+`;
+
+const RepleInputArea = styled.textarea`
+  width: 50%;
+  vertical-align: middle;
+`;
+
+const InputBtn = styled.button`
+  width: 3rem;
+  height: 1.5rem;
+  margin-left: 10px;
+  vertical-align: top;
+`;

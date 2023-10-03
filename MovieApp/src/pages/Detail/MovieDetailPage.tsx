@@ -4,9 +4,9 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import TrailerButton from "./components/TrailerButton";
 import Cast from "./components/Cast";
+import Reple from "@/pages/Detail/components/reple/Reple";
 
 import styled from "styled-components";
-import Reple from "@/components/reple/Reple";
 
 type Props = {};
 

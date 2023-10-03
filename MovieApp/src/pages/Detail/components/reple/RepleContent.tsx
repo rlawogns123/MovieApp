@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import styled from "styled-components";
+
 type RepleProps = {
   reple: any;
   key: any;
@@ -38,11 +40,38 @@ const RepleContent = ({ reple, key }: RepleProps) => {
     }
   };
   return (
-    <div>
-      {reple.reple}
-      {flag && <button onClick={(e) => repleDeleteFunc(e)}>삭제</button>}
-    </div>
+    <RepleContainer>
+      <RepleText>
+        <p>{reple.author}</p>
+        <h3>{reple.reple}</h3>
+      </RepleText>
+      <DeleteBtn>
+        {flag && <button onClick={(e) => repleDeleteFunc(e)}>삭제</button>}
+      </DeleteBtn>
+    </RepleContainer>
   );
 };
 
 export default RepleContent;
+
+const RepleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const RepleText = styled.div`
+  h3 {
+    display: inline;
+  }
+  p {
+    display: inline;
+    margin-right: 30px;
+  }
+`;
+const DeleteBtn = styled.div`
+  width: 3rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+`;

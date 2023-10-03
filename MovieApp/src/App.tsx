@@ -1,12 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "@/components/Header";
 import Home from "@/pages/Home/Home";
 import PopularMoviePage from "@/pages/PopularMoviePage";
 import TopRatedMoviePage from "@/pages/TopRated/TopRatedMoviePage";
 import UpcomingMoviePage from "@/pages/Upcoming/UpcomingMoviePage";
 import MovieDetailPage from "@/pages/Detail/MovieDetailPage";
 import SearchMoviePage from "@/pages/Search/SearchMoviePage";
-import ScrollUpButton from "@/components/ScrollUpButton";
 import Signin from "@/pages/Signin";
 import Signup from "@/pages/Signup";
 import HeaderScrollUp from "@/components/HeaderScrollUp";

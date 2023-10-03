@@ -16,7 +16,6 @@ const RepleList = ({ movieId }: movieProps) => {
       .post("/api/reple/getreple", body)
       .then((res) => {
         if (res.data.success) {
-          console.log(res.data.repleList);
           setRepleList([...res.data.repleList]);
         }
       })

@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export interface RepleInterface {
   reple: string;
-  author: mongoose.Schema.Types.ObjectId;
+  author: string;
   movieId: string;
 }
 
@@ -13,7 +13,7 @@ const repleSchema = new mongoose.Schema<RepleInterface>(
       required: true,
     },
     author: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       ref: "User",
       required: true,
     },

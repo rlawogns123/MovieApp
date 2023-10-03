@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 
 const server = express();
 dotenv.config({ path: "../.env" });
+const port: number = 8080;
 
 const MONGOURI = process.env.MONGOURI as string;
 
@@ -19,7 +20,7 @@ server.use(cookieParser());
 server.use("/api/user", User);
 server.use("/api/reple", Reple);
 
-server.listen(8080, () => {
+server.listen(port, () => {
   mongoose
     .connect(MONGOURI)
     .then(() => console.log("MongoDB 연결 성공"))

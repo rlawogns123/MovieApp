@@ -23,7 +23,7 @@ const Cast = (props: Props) => {
       {castInfo?.map((cast: any) => (
         <CastCard key={cast.id}>
           <img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} />
-          <p>{cast.name}</p>
+          <h3>{cast.name}</h3>
           <p>{cast.character} 역</p>
         </CastCard>
       ))}

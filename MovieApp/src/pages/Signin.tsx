@@ -19,7 +19,7 @@ const Signin = (props: Props) => {
     }
 
     const body = {
-      id: id,
+      userId: id,
       password: pwd,
     };
 
@@ -37,7 +37,7 @@ const Signin = (props: Props) => {
     <SigninForm>
       <form onSubmit={signinFunc}>
         <div>
-          <input
+          <InputWrapper
             type="text"
             value={id}
             placeholder={" ID"}
@@ -45,7 +45,7 @@ const Signin = (props: Props) => {
           />
         </div>
         <div>
-          <input
+          <InputWrapper
             type="password"
             value={pwd}
             placeholder={" 비밀번호"}
@@ -53,10 +53,10 @@ const Signin = (props: Props) => {
           />
         </div>
         <div>
-          <button>로그인</button>
+          <BtnWrapper>로그인</BtnWrapper>
         </div>
         <div>
-          <button onClick={() => navigate("/signup")}>회원가입</button>
+          <BtnWrapper onClick={() => navigate("/signup")}>회원가입</BtnWrapper>
         </div>
       </form>
     </SigninForm>
@@ -69,5 +69,17 @@ const SigninForm = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 80vh;
+`;
+
+const InputWrapper = styled.input`
+  width: 13rem;
+  height: 1.5rem;
+  margin-bottom: 1rem;
+`;
+
+const BtnWrapper = styled.button`
+  width: 13.5rem;
+  height: 1.5rem;
+  margin-bottom: 1rem;
 `;

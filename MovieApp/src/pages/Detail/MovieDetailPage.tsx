@@ -6,6 +6,7 @@ import TrailerButton from "./components/TrailerButton";
 import Cast from "./components/Cast";
 
 import styled from "styled-components";
+import Reple from "@/components/reple/Reple";
 
 type Props = {};
 
@@ -42,6 +43,7 @@ const MovieDetailPage = (props: Props) => {
         </p>
         <p>{data?.overview}</p>
         <Cast />
+        <Reple movieId={id} />
       </InfoContainer>
     </DetailContainer>
   );
@@ -59,4 +61,6 @@ const PosterContainer = styled.div`
   margin-right: 5rem;
 `;
 
-const InfoContainer = styled.article``;
+const InfoContainer = styled.article`
+  width: 60vw;
+`;

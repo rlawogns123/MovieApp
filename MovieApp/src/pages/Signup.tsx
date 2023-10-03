@@ -22,7 +22,7 @@ const Signup = (props: Props) => {
       return alert("ID를 입력해주세요");
     }
     const body = {
-      id: id,
+      userId: id,
     };
     axios.post("/api/user/idcheck", body).then((res) => {
       if (res.data.success) {
@@ -80,7 +80,7 @@ const Signup = (props: Props) => {
     }
 
     const body = {
-      id: id,
+      userId: id,
       password: pwd,
       name: name,
     };
@@ -107,7 +107,7 @@ const Signup = (props: Props) => {
               placeholder={" 닉네임"}
               onChange={(e) => setName(e.target.value)}
             />
-            <CheckBtn>중복 검사</CheckBtn>
+            <CheckBtn>확인</CheckBtn>
           </div>
         </form>
         <form onSubmit={idCheckFunc}>
@@ -118,7 +118,7 @@ const Signup = (props: Props) => {
               placeholder={" ID"}
               onChange={(e) => setId(e.target.value)}
             />
-            <CheckBtn>중복 검사</CheckBtn>
+            <CheckBtn>확인</CheckBtn>
           </div>
         </form>
         <div>
@@ -156,8 +156,7 @@ const SignupForm = styled.div`
 
 const InputWrapper = styled.input`
   width: 13rem;
-  height: 3rem;
-  border-radius: 5%;
+  height: 1.5rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
 `;
@@ -168,6 +167,6 @@ const SignupBtn = styled.button`
 `;
 
 const CheckBtn = styled.button`
-  width: 5rem;
-  height: 3rem;
+  width: 3rem;
+  height: 1.5rem;
 `;

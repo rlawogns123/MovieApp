@@ -1,8 +1,9 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const path = require("path");
-const User = require("./router/User");
-const cookieParser = require("cookie-parser");
+import express from "express";
+import mongoose from "mongoose";
+import path from "path";
+import User from "./router/User";
+import Reple from "./router/Reple";
+import cookieParser from "cookie-parser";
 
 const server = express();
 
@@ -12,6 +13,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use(cookieParser());
 
 server.use("/api/user", User);
+server.use("/api/reple", Reple);
 
 server.listen(4000, () => {
   mongoose

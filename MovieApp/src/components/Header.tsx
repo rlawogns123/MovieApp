@@ -23,6 +23,7 @@ const Header = (props: Props) => {
     axios.get("/api/user/logout").then((res) => {
       if (res.data.success === true) {
         alert("로그아웃 되었습니다.");
+        window.location.reload();
         setFlag(false);
       }
     });
@@ -47,7 +48,7 @@ const Header = (props: Props) => {
       <Right>
         <SearchBar />
         {flag ? (
-          <button onClick={(e) => logoutFunc(e)}>로그아웃</button>
+          <LogoutBtn onClick={(e) => logoutFunc(e)}>로그아웃</LogoutBtn>
         ) : (
           <SigninLink to={"/signin"}>로그인</SigninLink>
         )}
@@ -64,6 +65,7 @@ const Right = styled.div`
 
 const SigninLink = styled(Link)`
   margin-left: 15px;
+  margin-top: 5px;
   text-decoration: none;
   color: white;
 `;
@@ -101,5 +103,16 @@ const NavbarLink = styled(Link)`
 
   @media screen and (max-width: 767px) {
     display: none;
+  }
+`;
+
+const LogoutBtn = styled.button`
+  font-size: 1rem;
+  border: 0;
+  background-color: transparent;
+  color: white;
+  margin-left: 10px;
+  &:hover {
+    cursor: pointer;
   }
 `;

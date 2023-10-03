@@ -1,15 +1,14 @@
-const express = require("express");
-const { User } = require("../model/User");
-const jwt = require("jsonwebtoken");
-const { auth } = require("../middleware/auth");
-const bcrypt = require("bcryptjs");
+import { Router } from "express";
+import User from "../model/User";
+import auth from "../middleware/auth";
+import { genSalt, hash } from "bcryptjs";
 
-const router = express.Router();
+const router = Router();
 
 router.post("/idcheck", (req, res) => {
   const { id } = req.body;
 
-  User.findOne({ id })
+  User.findOne({ userId: id })
     .then((doc) => {
       let check = true;
       if (doc) {
@@ -41,30 +40,30 @@ router.post("/namecheck", (req, res) => {
 });
 
 router.post("/signup", async (req, res) => {
-  const { id, password, name } = req.body;
+  const { userId, password, name } = req.body;
 
   try {
     const user = new User({
-      id,
+      userId,
       password,
       name,
     });
 
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(password, salt);
+    const salt = await genSalt(10);
+    user.password = await hash(password, salt);
 
     await user.save();
     res.status(200).send("Success");
-  } catch (err) {
+  } catch (err: any) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
 });
 
 router.post("/signin", (req, res) => {
-  const { id, password } = req.body;
+  const { userId, password } = req.body;
 
-  User.findOne({ id: id })
+  User.findOne({ userId })
     .then((docs) => {
       if (!docs) {
         return res.json({
@@ -80,7 +79,7 @@ router.post("/signin", (req, res) => {
             messsage: "비밀번호가 틀렸습니다.",
           });
 
-        docs.generateToken((err, user) => {
+        docs.generateToken((err, user: any) => {
           if (err) return res.status(400).send(err);
           res.cookie("x_auth", user.token).status(200).send("Success");
         });
@@ -93,15 +92,15 @@ router.post("/signin", (req, res) => {
 
 router.get("/auth", auth, (req, res) => {
   res.status(200).json({
-    _id: req.user._id,
+    _id: req.body.user._id,
     isAuth: true,
-    id: req.user.id,
-    name: req.user.name,
+    id: req.body.user.id,
+    name: req.body.user.name,
   });
 });
 
 router.get("/logout", auth, (req, res) => {
-  User.findOneAndUpdate({ _id: req.user._id }, { token: "" })
+  User.findOneAndUpdate({ _id: req.body.user._id }, { token: "" })
     .then(() => {
       res.clearCookie("x_auth");
       return res.status(200).send({ success: true, logout: "로그아웃 완료" });
@@ -111,4 +110,4 @@ router.get("/logout", auth, (req, res) => {
     });
 });
 
-module.exports = router;
+export default router;

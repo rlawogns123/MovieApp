@@ -1,14 +1,14 @@
 import express from "express";
-import mongoose from "mongoose";
-import path from "path";
-import User from "./router/User";
-import Reple from "./router/Reple";
-import cookieParser from "cookie-parser";
-import dotenv from "dotenv";
+// import mongoose from "mongoose";
+// import path from "path";
+// import User from "./router/User";
+// import Reple from "./router/Reple";
+// import cookieParser from "cookie-parser";
+// import dotenv from "dotenv";
 
 const server = express();
 // dotenv.config({ path: "../.env" });
-const port = 8080;
+const port = 4000;
 
 // const MONGOURI = process.env.MONGOURI as string;
 

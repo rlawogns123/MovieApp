@@ -4,7 +4,7 @@ export default function (server) {
   server.use(
     "/api",
     createProxyMiddleware({
-      target: "http://localhost:8080",
+      target: "http://localhost:4001",
       changeOrigin: true,
     })
   );

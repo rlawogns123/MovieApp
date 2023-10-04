@@ -6,6 +6,9 @@ import { MovieDetail } from "@/pages/Home/Home";
 
 import styled from "styled-components";
 
+const BASE_URL = import.meta.env.VITE_TMDB_BASE_URL;
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
 type Props = {};
 
 const PopularMovie = (props: Props) => {

@@ -8,7 +8,7 @@ import express from "express";
 
 const server = express();
 // dotenv.config({ path: "../.env" });
-const port = 4000;
+const port = 4001;
 
 // const MONGOURI = process.env.MONGOURI as string;
 

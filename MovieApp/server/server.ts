@@ -7,10 +7,10 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 
 const server = express();
-dotenv.config({ path: "../.env" });
+// dotenv.config({ path: "../.env" });
 const port = 8080;
 
-const MONGOURI = process.env.MONGOURI as string;
+// const MONGOURI = process.env.MONGOURI as string;
 
 // server.use(express.static(path.join(__dirname, "../dist")));
 // server.use(express.json());
@@ -35,4 +35,6 @@ const MONGOURI = process.env.MONGOURI as string;
 //   res.sendFile(path.join(__dirname, "../dist/index.html"));
 // });
 
-server.listen(port, () => {});
+server.listen(port, () => {
+  console.log("connected");
+});

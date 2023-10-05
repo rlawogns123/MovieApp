@@ -13,7 +13,7 @@ const dirname = path.resolve();
 
 const MONGOURI = process.env.MONGOURI;
 
-server.use(express.static(path.join(dirname, "./client/dist")));
+server.use(express.static(path.join(dirname, "./client/dist/")));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(cookieParser());

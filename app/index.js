@@ -13,7 +13,7 @@ const __dirname = path.resolve();
 
 const MONGOURI = process.env.MONGOURI;
 
-server.use(express.static(path.join(__dirname, "./client/dist/")));
+server.use(express.static(path.join(__dirname, "./client/build")));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(cookieParser());
@@ -29,11 +29,11 @@ server.listen(port, () => {
 });
 
 server.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/dist/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 server.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/dist/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 // server.listen(4001, () => {

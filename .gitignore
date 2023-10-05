@@ -26,3 +26,6 @@ dist-ssr
 # API KEY
 .env
 /client/.env
+
+package-lock.json
+./client/package-lock.json

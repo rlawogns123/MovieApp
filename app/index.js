@@ -40,8 +40,8 @@ server.get("*", (req, res) => {
 //   console.log("connected");
 // });
 
-server.get("/hello", (req, res) => {
-  res.status(200).json({
-    message: "hello",
-  });
-});
+// server.get("/hello", (req, res) => {
+//   res.status(200).json({
+//     message: "hello",
+//   });
+// });

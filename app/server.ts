@@ -35,6 +35,6 @@ const port = 4001;
 //   res.sendFile(path.join(__dirname, "./client/dist/index.html"));
 // });
 
-server.listen(port, () => {
+server.listen(4001, () => {
   console.log("connected");
 });

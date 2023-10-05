@@ -35,13 +35,3 @@ server.get("/", (req, res) => {
 server.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-// server.listen(4001, () => {
-//   console.log("connected");
-// });
-
-// server.get("/hello", (req, res) => {
-//   res.status(200).json({
-//     message: "hello",
-//   });
-// });

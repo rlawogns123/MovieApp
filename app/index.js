@@ -9,11 +9,11 @@ import dotenv from "dotenv";
 const server = express();
 const port = 4001;
 dotenv.config({ path: ".env" });
-const __dirname = path.resolve();
+const dirname = path.resolve();
 
 const MONGOURI = process.env.MONGOURI;
 
-server.use(express.static(path.join(__dirname, "./client/dist")));
+server.use(express.static(path.join(dirname, "./client/dist")));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(cookieParser());
@@ -29,11 +29,11 @@ server.listen(port, () => {
 });
 
 server.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/dist/index.html"));
+  res.sendFile(path.join(dirname, "./client/dist/index.html"));
 });
 
 server.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/dist/index.html"));
+  res.sendFile(path.join(dirname, "./client/dist/index.html"));
 });
 
 // server.listen(4001, () => {

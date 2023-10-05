@@ -8,8 +8,12 @@
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
   <img src="https://img.shields.io/badge/React Query-FF4154?style=for-the-badge&logo=reactquery&logoColor=white">
   <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white">
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white">
+  <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white">
+  <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white">
   <img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
-  <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=Netlify&logoColor=white">
+
 </div>
 
 <br/>
@@ -23,7 +27,7 @@
 <h3>무한 스크롤 기능 구현</h3>
 <h3>검색 기능 구현</h3>
 <h3>스크롤 업 기능 구현</h3>
-<h3>로그인, 로그아웃 기능 구현</h3>
+<h3>회원가입, 로그인, 로그아웃 기능 구현</h3>
 <h3>영화 상세페이지 댓글 등록, 삭제 기능 구현</h3>
 
 <br/>
@@ -33,7 +37,7 @@
 
 ### 데모 링크
 
-[데모링크 바로가기](https://rlawogns-movieapp.netlify.app)
+[데모링크 바로가기](https://port-0-movieapp-12fhqa2blnajx18z.sel5.cloudtype.app/)
 
 <br/>
 <br/>
@@ -46,64 +50,9 @@
 
 ![3](https://github.com/rlawogns123/MovieApp/assets/73879034/e7520e93-6e5a-4d0d-85e9-6d2b7761033d)
 
+![4](https://github.com/rlawogns123/MovieApp/assets/73879034/33bba87a-cc58-4420-a1c9-b73b0ab55124)
+
+![5-min](https://github.com/rlawogns123/MovieApp/assets/73879034/7556819f-06a3-4d1c-ae2a-97df92ac96d8)
+
 <br/>
 <br/>
-
-## 폴더 구조
-
-```
-App
-├─ MovieApp
-│  ├─ dist
-│  │  ├─ assets
-│  │  │  ├─ index-74379e69.js
-│  │  │  └─ index-a73cedd2.css
-│  │  ├─ index.html
-│  │  └─ vite.svg
-│  ├─ index.html
-│  ├─ package-lock.json
-│  ├─ package.json
-│  ├─ public
-│  │  └─ vite.svg
-│  ├─ src
-│  │  ├─ api
-│  │  │  ├─ index.ts
-│  │  │  ├─ movieApi.ts
-│  │  │  └─ movieDetail.ts
-│  │  ├─ App.css
-│  │  ├─ App.tsx
-│  │  ├─ assets
-│  │  │  └─ react.svg
-│  │  ├─ components
-│  │  │  ├─ Header.tsx
-│  │  │  ├─ MovieCard.tsx
-│  │  │  └─ ScrollUpButton.tsx
-│  │  ├─ main.tsx
-│  │  ├─ pages
-│  │  │  ├─ Detail
-│  │  │  │  ├─ components
-│  │  │  │  │  ├─ Cast.tsx
-│  │  │  │  │  ├─ MovieInfo.tsx
-│  │  │  │  │  ├─ TrailerButton.tsx
-│  │  │  │  │  └─ TrailerModal.tsx
-│  │  │  │  └─ MovieDetailPage.tsx
-│  │  │  ├─ Home
-│  │  │  │  ├─ components
-│  │  │  │  │  ├─ PopularMovie.tsx
-│  │  │  │  │  ├─ TopRatedMovie.tsx
-│  │  │  │  │  └─ UpcomingMovie.tsx
-│  │  │  │  └─ Home.tsx
-│  │  │  ├─ PopularMoviePage.tsx
-│  │  │  ├─ Search
-│  │  │  │  ├─ components
-│  │  │  │  │  └─ SearchBar.tsx
-│  │  │  │  └─ SearchMoviePage.tsx
-│  │  │  ├─ TopRatedMoviePage.tsx
-│  │  │  └─ UpcomingMoviePage.tsx
-│  │  └─ vite-env.d.ts
-│  ├─ tsconfig.json
-│  ├─ tsconfig.node.json
-│  └─ vite.config.ts
-└─ README.md
-
-```

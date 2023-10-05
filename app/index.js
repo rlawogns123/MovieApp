@@ -11,7 +11,6 @@ const port = 4001;
 dotenv.config({ path: ".env" });
 const __dirname = path.resolve();
 
-// const MONGOURI = process.env.MONGOURI as string;
 const MONGOURI = process.env.MONGOURI;
 
 server.use(express.static(path.join(__dirname, "./client/dist")));

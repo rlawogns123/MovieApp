@@ -6,9 +6,6 @@ import { MovieDetail } from "@/pages/Home/Home";
 
 import styled from "styled-components";
 
-const BASE_URL = import.meta.env.VITE_TMDB_BASE_URL;
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-
 type Props = {};
 
 const PopularMovie = (props: Props) => {
@@ -16,7 +13,10 @@ const PopularMovie = (props: Props) => {
     getPopularMovie("1")
   );
 
-  if (isLoading) <h1>Loading...</h1>;
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
   if (isError) <h1>Error ㅠㅠ</h1>;
 
   const top5Movie = data?.results?.slice(0, 5);

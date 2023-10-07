@@ -13,7 +13,9 @@ const TopRatedMovie = (props: Props) => {
     getTopRatedMovie("1")
   );
 
-  if (isLoading) <h1>Loading...</h1>;
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
   if (isError) <h1>Error ㅠㅠ</h1>;
 
   const top5Movie = data?.results?.slice(0, 5);

@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "@/pages/Home/Home";
+import Home from "@/pages/Home";
 import PopularMoviePage from "@/pages/PopularMoviePage";
-import TopRatedMoviePage from "@/pages/TopRated/TopRatedMoviePage";
-import UpcomingMoviePage from "@/pages/Upcoming/UpcomingMoviePage";
-import MovieDetailPage from "@/pages/Detail/MovieDetailPage";
-import SearchMoviePage from "@/pages/Search/SearchMoviePage";
+import TopRatedMoviePage from "@/pages/TopRatedMoviePage";
+import UpcomingMoviePage from "@/pages/UpcomingMoviePage";
+import MovieDetailPage from "@/pages/MovieDetailPage";
+import SearchMoviePage from "@/pages/SearchMoviePage";
 import Signin from "@/pages/Signin";
 import Signup from "@/pages/Signup";
-import HeaderScrollUp from "@/components/HeaderScrollUp";
+import HeaderScrollUp from "@/components/header/HeaderScrollUp";
 
 import "./App.css";
 

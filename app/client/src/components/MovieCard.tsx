@@ -1,5 +1,5 @@
 import React from "react";
-import { MovieDetail } from "@/pages/Home/Home";
+import { MovieDetail } from "@/pages/Home";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";

@@ -1,5 +1,5 @@
 import React from "react";
-import { MovieDetail } from "@/pages/Home/Home";
+import { MovieDetail } from "@/pages/Home";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
@@ -9,7 +9,7 @@ type MovieProps = {
 };
 
 const MovieCard = ({ movieData }: MovieProps) => {
-  const { id, title, poster_path, release_date } = movieData;
+  const { id, title, poster_path, vote_average } = movieData;
   return (
     <Card>
       <LinkDetail to={`/${id}`}>
@@ -20,8 +20,8 @@ const MovieCard = ({ movieData }: MovieProps) => {
             <h1>No Image</h1>
           )}
         </PosterWrapper>
-        <h4>{title}</h4>
-        {release_date ? <h4>{release_date}</h4> : "미정"}
+        {<h4>{title}</h4>}
+        {<h4>⭐{vote_average}</h4>}
       </LinkDetail>
     </Card>
   );

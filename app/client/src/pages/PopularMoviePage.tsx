@@ -3,33 +3,24 @@ import { useInfiniteQuery } from "react-query";
 import { getPopularMovie } from "@/api/movieApi";
 import InfiniteScroll from "react-infinite-scroller";
 import MovieCard from "@/components/MovieCard";
-import { MovieDetail } from "./Home/Home";
+import { MovieDetail } from "./Home";
 
 import styled from "styled-components";
 
 type Props = {};
 
 const PopularMoviePage = (props: Props) => {
-  const { isLoading, isError, data, fetchNextPage, hasNextPage } =
-    useInfiniteQuery(
-      ["popular"],
-      ({ pageParam = 1 }) => getPopularMovie(pageParam),
-      {
-        getNextPageParam: (lastPage) => {
-          let page = lastPage.page;
-          if (lastPage.total_page === page) {
-            return false;
-          }
-          return page + 1;
-        },
+  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery({
+    queryKey: ["popular"],
+    queryFn: ({ pageParam = 1 }) => getPopularMovie(pageParam),
+    getNextPageParam: (lastPage) => {
+      let page = lastPage.page;
+      if (lastPage.total_page === page) {
+        return false;
       }
-    );
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (isError) <h1>Error</h1>;
+      return page + 1;
+    },
+  });
 
   return (
     <Fragment>

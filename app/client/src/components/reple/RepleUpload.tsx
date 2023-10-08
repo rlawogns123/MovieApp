@@ -58,7 +58,7 @@ const RepleUpload = ({ movieId }: MovieProps) => {
 export default RepleUpload;
 
 const RepleInputForm = styled.form`
-  margin-top: 4rem;
+  margin-top: 1rem;
 `;
 
 const RepleInputArea = styled.textarea`

@@ -2,9 +2,9 @@ import React from "react";
 import { getMovieDetail } from "@/api/movieDetail";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import TrailerButton from "./components/TrailerButton";
-import Cast from "./components/Cast";
-import Reple from "@/pages/Detail/components/reple/Reple";
+import TrailerButton from "../components/page/Detail/TrailerButton";
+import Cast from "../components/page/Detail/Cast";
+import Reple from "@/components/reple/Reple";
 
 import styled from "styled-components";
 
@@ -13,12 +13,10 @@ type Props = {};
 const MovieDetailPage = (props: Props) => {
   const { id } = useParams() as { id: string };
 
-  const { isLoading, data, isError } = useQuery(["detail"], () =>
-    getMovieDetail(id)
-  );
-
-  if (isLoading) <h1>Loading...</h1>;
-  if (isError) <h1>Error ㅠㅠ</h1>;
+  const { data } = useQuery({
+    queryKey: ["detail"],
+    queryFn: () => getMovieDetail(id),
+  });
 
   return (
     <DetailContainer>

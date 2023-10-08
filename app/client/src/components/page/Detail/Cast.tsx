@@ -9,12 +9,10 @@ type Props = {};
 
 const Cast = (props: Props) => {
   const { id } = useParams() as { id: string };
-  const { isLoading, data, isError } = useQuery(["cast"], () =>
-    getMovieCredits(id)
-  );
-
-  if (isLoading) <h1>Loading...</h1>;
-  if (isError) <h1>Error ㅠㅠ</h1>;
+  const { data } = useQuery({
+    queryKey: ["cast"],
+    queryFn: () => getMovieCredits(id),
+  });
 
   const castInfo = data?.cast.slice(0, 5);
 
@@ -22,7 +20,13 @@ const Cast = (props: Props) => {
     <CastList>
       {castInfo?.map((cast: any) => (
         <CastCard key={cast.id}>
-          <img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} />
+          {cast.profile_path ? (
+            <img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} />
+          ) : (
+            <NoImage>
+              <h3>No Image</h3>
+            </NoImage>
+          )}
           <h3>{cast.name}</h3>
           <p>{cast.character} 역</p>
         </CastCard>
@@ -41,4 +45,11 @@ const CastCard = styled.div`
   margin-top: 1rem;
   margin-right: 2rem;
   text-align: center;
+`;
+
+const NoImage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
 `;

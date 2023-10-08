@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { repleDetail } from "./RepleList";
 
 import styled from "styled-components";
 
 type RepleProps = {
-  reple: any;
-  key: any;
+  reple: repleDetail;
 };
 
-const RepleContent = ({ reple, key }: RepleProps) => {
+const RepleContent = ({ reple }: RepleProps) => {
   const [flag, setFlag] = useState<boolean>(false);
 
   useEffect(() => {
     axios.get("/api/user/auth").then((res) => {
-      if (res.data.isAuth === true) setFlag(true);
-      else setFlag(false);
+      if (res.data.isAuth !== true) return;
+
+      if (res.data.name === reple.author) return setFlag(true);
     });
   }, [flag]);
 
@@ -39,11 +40,16 @@ const RepleContent = ({ reple, key }: RepleProps) => {
         });
     }
   };
+
   return (
     <RepleContainer>
       <RepleText>
-        <p>{reple.author}</p>
-        <h3>{reple.reple}</h3>
+        <AuthorWrapper>
+          <h4>{reple.author}</h4>
+        </AuthorWrapper>
+        <RepleWrapper>
+          <h3>{reple.reple}</h3>
+        </RepleWrapper>
       </RepleText>
       <DeleteBtn>
         {flag && <button onClick={(e) => repleDeleteFunc(e)}>삭제</button>}
@@ -57,16 +63,11 @@ export default RepleContent;
 const RepleContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 70rem;
 `;
 
 const RepleText = styled.div`
-  h3 {
-    display: inline;
-  }
-  p {
-    display: inline;
-    margin-right: 30px;
-  }
+  display: flex;
 `;
 const DeleteBtn = styled.div`
   width: 3rem;
@@ -74,4 +75,13 @@ const DeleteBtn = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
+`;
+
+const AuthorWrapper = styled.div`
+  margin-right: 30px;
+  width: 9.5rem;
+`;
+
+const RepleWrapper = styled.div`
+  width: 44rem;
 `;

@@ -1,34 +1,26 @@
 import React, { Fragment } from "react";
 import { useInfiniteQuery } from "react-query";
-import { getTopRatedMovie } from "@/api/movieApi";
+import { getUpcomingMovie } from "@/api/movieApi";
 import InfiniteScroll from "react-infinite-scroller";
-import MovieCard from "@/pages/TopRated/MovieCard";
-import { MovieDetail } from "../Home/Home";
+import MovieCard from "@/components/page/Upcoming/MovieCard";
+import { MovieDetail } from "./Home";
 
 import styled from "styled-components";
 
 type Props = {};
 
-const TopRatedMoviePage = (props: Props) => {
-  const { isLoading, isError, data, fetchNextPage, hasNextPage } =
-    useInfiniteQuery(
-      ["top_rated"],
-      ({ pageParam = 1 }) => getTopRatedMovie(pageParam),
-      {
-        getNextPageParam: (lastPage) => {
-          let page = lastPage.page;
-          if (lastPage.total_page === page) {
-            return false;
-          }
-          return page + 1;
-        },
+const UpcomingMoviePage = (props: Props) => {
+  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery({
+    queryKey: ["upcoming"],
+    queryFn: ({ pageParam = 1 }) => getUpcomingMovie(pageParam),
+    getNextPageParam: (lastPage) => {
+      let page = lastPage.page;
+      if (lastPage.total_page === page) {
+        return false;
       }
-    );
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-  if (isError) <h1>Error</h1>;
+      return page + 1;
+    },
+  });
 
   return (
     <Fragment>
@@ -39,7 +31,7 @@ const TopRatedMoviePage = (props: Props) => {
           textAlign: "center",
         }}
       >
-        Top Rated Movie
+        Upcoming Movie
       </h2>
       <InfiniteScroll loadMore={() => fetchNextPage()} hasMore={hasNextPage}>
         <MovieList>
@@ -56,11 +48,11 @@ const TopRatedMoviePage = (props: Props) => {
   );
 };
 
-export default TopRatedMoviePage;
+export default UpcomingMoviePage;
 
 const MovieList = styled.div`
   width: 100vw;
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
+  margin-left: 2rem;
 `;

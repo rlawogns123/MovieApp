@@ -12,12 +12,10 @@ const TrailerButton = (props: Props) => {
   const { id } = useParams() as { id: string };
   const [openModal, setOpenModal] = useState<boolean>(false);
 
-  const { isLoading, data, isError } = useQuery(["trailer"], () =>
-    getMovieTrailer(id)
-  );
-
-  if (isLoading) <h1>Loading...</h1>;
-  if (isError) <h1>Error ㅠㅠ</h1>;
+  const { data } = useQuery({
+    queryKey: ["trailer"],
+    queryFn: () => getMovieTrailer(id),
+  });
 
   const trailerKey: string = data?.results[0]?.key;
 

@@ -6,6 +6,13 @@ type movieProps = {
   movieId: string;
 };
 
+export interface repleDetail {
+  _id: string;
+  author: string;
+  movieId: string;
+  reple: string;
+}
+
 const RepleList = ({ movieId }: movieProps) => {
   const [repleList, setRepleList] = useState<any>([]);
 
@@ -26,8 +33,8 @@ const RepleList = ({ movieId }: movieProps) => {
 
   return (
     <div>
-      {repleList.map((reple: any, idx: any) => {
-        return <RepleContent reple={reple} key={idx} />;
+      {repleList.map((reple: repleDetail) => {
+        return <RepleContent reple={reple} />;
       })}
     </div>
   );

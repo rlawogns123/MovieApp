@@ -44,15 +44,24 @@
 
 ## 실행 화면
 
-![1](https://github.com/rlawogns123/MovieApp/assets/73879034/4ecb28c9-fe5b-4a5f-853d-c3e7daef231f)
-
-![2](https://github.com/rlawogns123/MovieApp/assets/73879034/a4d781b2-dfe5-4587-b135-1cc6de301544)
-
-![3](https://github.com/rlawogns123/MovieApp/assets/73879034/e7520e93-6e5a-4d0d-85e9-6d2b7761033d)
-
-![4](https://github.com/rlawogns123/MovieApp/assets/73879034/33bba87a-cc58-4420-a1c9-b73b0ab55124)
-
-![5-min](https://github.com/rlawogns123/MovieApp/assets/73879034/7556819f-06a3-4d1c-ae2a-97df92ac96d8)
+![1](https://github.com/rlawogns123/MovieApp/assets/73879034/9361ca46-c106-452d-a8ed-01b846d3001e)
 
 <br/>
 <br/>
+
+![2](https://github.com/rlawogns123/MovieApp/assets/73879034/1681b474-56f9-462b-ae73-b9bdb74b1bfc)
+
+<br/>
+<br/>
+
+![3](https://github.com/rlawogns123/MovieApp/assets/73879034/25c866b6-4fb8-4fc0-a2c1-7fb45c10fe49)
+
+<br/>
+<br/>
+
+![4](https://github.com/rlawogns123/MovieApp/assets/73879034/bd5c5808-65e1-42c5-9480-c06cc9053818)
+
+<br/>
+<br/>
+
+![5](https://github.com/rlawogns123/MovieApp/assets/73879034/969ff4df-5ded-49fc-becd-56c6e73f032f)

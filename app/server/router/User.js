@@ -7,9 +7,9 @@ const router = Router();
 const { genSalt, hash } = pkg;
 
 router.post("/idcheck", (req, res) => {
-  const { id } = req.body;
+  const { userId } = req.body;
 
-  User.findOne({ userId: id })
+  User.findOne({ userId })
     .then((doc) => {
       let check = true;
       if (doc) {

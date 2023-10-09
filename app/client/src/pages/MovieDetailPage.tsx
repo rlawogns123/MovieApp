@@ -2,7 +2,7 @@ import React from "react";
 import { getMovieDetail } from "@/api/movieDetail";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import TrailerButton from "../components/page/Detail/TrailerButton";
+import TrailerButton from "@/components/page/Detail/TrailerButton";
 import Cast from "../components/page/Detail/Cast";
 import Reple from "@/components/reple/Reple";
 

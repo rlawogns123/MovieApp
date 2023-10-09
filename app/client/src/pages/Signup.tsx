@@ -6,6 +6,12 @@ import styled from "styled-components";
 
 type Props = {};
 
+export interface userData {
+  userId: string;
+  password?: string;
+  name?: string;
+}
+
 const Signup = (props: Props) => {
   const navigate = useNavigate();
   const [id, setId] = useState<string>("");
@@ -14,85 +20,74 @@ const Signup = (props: Props) => {
   const [nameCheck, setNameCheck] = useState<boolean>(false);
   const [pwd, setPwd] = useState<string>("");
   const [pwdConfirm, setPwdConfirm] = useState<string>("");
-  const [flag, setFlag] = useState<boolean>(false);
 
   const idCheckFunc = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!id) {
-      return alert("ID를 입력해주세요");
-    }
+
+    if (!id) return alert("ID를 입력해주세요");
+
     const body = {
       userId: id,
     };
+
     axios.post("/api/user/idcheck", body).then((res) => {
-      if (res.data.success) {
-        if (res.data.check) {
-          setIdCheck(true);
-          alert("사용 가능한 ID 입니다.");
-        } else {
-          alert("사용 불가능한 ID 입니다. (중복)");
-        }
-      }
+      if (!res.data.success) return;
+
+      if (!res.data.check) return alert("사용 불가능한 ID 입니다. (중복)");
+
+      setIdCheck(true);
+      alert("사용 가능한 ID 입니다.");
     });
   };
 
   const nameCheckFunc = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!name) {
-      return alert("닉네임을 입력해주세요");
-    }
+
+    if (!name) return alert("닉네임을 입력해주세요");
+
     const body = {
       name: name,
     };
 
     axios.post("/api/user/namecheck", body).then((res) => {
-      if (res.data.success) {
-        if (res.data.check) {
-          setNameCheck(true);
-          alert("사용 가능한 닉네임 입니다.");
-        } else {
-          alert("사용 불가능한 닉네임입니다. (중복)");
-        }
-      }
+      if (!res.data.success) return;
+
+      if (!res.data.check) return alert("사용 불가능한 닉네임입니다. (중복)");
+
+      setNameCheck(true);
+      alert("사용 가능한 닉네임 입니다.");
     });
   };
 
   const signupFunc = async (e: React.MouseEvent<HTMLFormElement>) => {
-    setFlag(true);
     e.preventDefault();
 
     if (!(id && name && pwd && pwdConfirm)) {
-      setFlag(false);
       alert("입력 정보를 확인해주세요");
       return;
     }
 
     if (pwd !== pwdConfirm) {
-      setFlag(false);
       alert("비밀번호와 비밀번호 확인 값이 다릅니다.");
       return;
     }
 
     if (!idCheck || !nameCheck) {
-      setFlag(false);
       alert("아이디 또는 닉네임 중복 검사를 해주세요");
       return;
     }
 
-    const body = {
+    const body: userData = {
       userId: id,
       password: pwd,
       name: name,
     };
 
     axios.post("/api/user/signup", body).then((res) => {
-      setFlag(false);
-      if (res.data === "Success") {
-        alert("회원가입에 성공하였습니다.");
-        navigate("/signin");
-      } else {
-        return alert("회원가입이 실패하였습니다.");
-      }
+      if (res.data !== "Success") return alert("회원가입이 실패하였습니다.");
+
+      alert("회원가입에 성공하였습니다.");
+      navigate("/signin");
     });
   };
 

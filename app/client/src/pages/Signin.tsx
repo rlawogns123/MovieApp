@@ -14,9 +14,7 @@ const Signin = (props: Props) => {
   const signinFunc = async (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!(id && pwd)) {
-      return alert("ID와 비밀번호를 입력해주세요");
-    }
+    if (!(id && pwd)) return alert("ID와 비밀번호를 입력해주세요");
 
     const body = {
       userId: id,
@@ -24,12 +22,11 @@ const Signin = (props: Props) => {
     };
 
     axios.post("/api/user/signin", body).then((res) => {
-      if (res.data === "Success") {
-        alert("환영합니다");
-        navigate("/");
-      } else {
+      if (res.data !== "Success")
         return alert("아이디 및 비밀번호를 확인해주세요");
-      }
+
+      alert("환영합니다");
+      navigate("/");
     });
   };
 

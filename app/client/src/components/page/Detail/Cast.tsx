@@ -9,11 +9,12 @@ type Props = {};
 
 const Cast = (props: Props) => {
   const { id } = useParams() as { id: string };
-  const { data } = useQuery({
+  const { data, isFetching } = useQuery({
     queryKey: ["cast"],
     queryFn: () => getMovieCredits(id),
   });
 
+  if (isFetching) return <h1></h1>;
   const castInfo = data?.cast.slice(0, 5);
 
   return (

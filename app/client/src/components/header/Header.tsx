@@ -61,6 +61,10 @@ export default Header;
 
 const Right = styled.div`
   display: flex;
+
+  @media screen and (max-width: 767px) {
+    width: 70%;
+  }
 `;
 
 const SigninLink = styled(Link)`

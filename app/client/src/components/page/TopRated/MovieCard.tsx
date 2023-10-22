@@ -20,8 +20,8 @@ const MovieCard = ({ movieData }: MovieProps) => {
             <h1>No Image</h1>
           )}
         </PosterWrapper>
-        {<h4>{title}</h4>}
-        {<h4>⭐{vote_average}</h4>}
+        {<p>{title}</p>}
+        {<p>⭐{vote_average}</p>}
       </LinkDetail>
     </Card>
   );
@@ -36,6 +36,7 @@ const Card = styled.div`
   }
   margin: 0 2rem 5rem 2rem;
   width: 300px;
+  font-size: 1rem;
 `;
 
 const PosterWrapper = styled.div`

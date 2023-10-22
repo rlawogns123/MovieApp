@@ -112,4 +112,5 @@ const MovieList = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 5rem;
+  flex-wrap: wrap;
 `;

@@ -55,11 +55,12 @@ const SearchButton = styled.button`
 
   @media screen and (max-width: 1023px) {
     width: 40px;
-    font-size: 5px;
+    font-size: 10px;
   }
 
   @media screen and (max-width: 767px) {
     width: 50px;
     height: 30px;
+    // font-size: 10px;
   }
 `;

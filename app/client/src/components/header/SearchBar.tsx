@@ -35,7 +35,7 @@ const SearchBar = (props: Props) => {
 export default SearchBar;
 
 const SearchInput = styled.input`
-  border-radius: 40px;
+  border-radius: 5px;
   margin-right: 1rem;
   color: black;
   padding: 5px;

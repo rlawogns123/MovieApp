@@ -92,7 +92,7 @@ export default Home;
 
 const HomeContainer = styled.div`
   margin-left: 2rem;
-  margin-top: 7rem;
+  margin-top: 10rem;
 `;
 
 const KategorieWrapper = styled.div`

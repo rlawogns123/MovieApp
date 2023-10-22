@@ -46,4 +46,5 @@ const MovieList = styled.div`
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 10rem;
 `;

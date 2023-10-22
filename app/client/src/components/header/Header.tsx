@@ -75,13 +75,12 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 
   position: fixed;
   background-color: rgba(0, 0, 0, 0.8);
   top: 0;
   z-index: 1;
-  width: 100%;
+  width: 97%;
   height: 3rem;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);

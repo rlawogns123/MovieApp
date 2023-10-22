@@ -52,6 +52,7 @@ export default MovieDetailPage;
 const DetailContainer = styled.div`
   display: flex;
   margin-left: 5rem;
+  margin-top: 10rem;
 `;
 
 const PosterContainer = styled.div`

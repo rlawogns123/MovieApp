@@ -31,5 +31,5 @@ export default Reple;
 
 const RepleListContainer = styled.div`
   width: 60vw;
-  margin-top: 30px;
+  margin-top: 1rem;
 `;

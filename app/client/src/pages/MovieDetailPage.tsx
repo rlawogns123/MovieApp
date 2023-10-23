@@ -41,6 +41,7 @@ const MovieDetailPage = (props: Props) => {
         </p>
         <p>{data?.overview}</p>
         <Cast />
+        <hr />
         <Reple movieId={id} />
       </InfoContainer>
     </DetailContainer>

@@ -40,6 +40,7 @@ export default Cast;
 
 const CastList = styled.div`
   display: flex;
+  margin-bottom: 2rem;
 `;
 
 const CastCard = styled.div`

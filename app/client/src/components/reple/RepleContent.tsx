@@ -45,10 +45,10 @@ const RepleContent = ({ reple }: RepleProps) => {
     <RepleContainer>
       <RepleText>
         <AuthorWrapper>
-          <h4>{reple.author}</h4>
+          <p>{reple.author}</p>
         </AuthorWrapper>
         <RepleWrapper>
-          <h3>{reple.reple}</h3>
+          <p>{reple.reple}</p>
         </RepleWrapper>
       </RepleText>
       <DeleteBtn>
@@ -63,12 +63,14 @@ export default RepleContent;
 const RepleContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 70rem;
+  // width: 70rem;
+  width: 60vw;
 `;
 
 const RepleText = styled.div`
   display: flex;
 `;
+
 const DeleteBtn = styled.div`
   width: 3rem;
   height: 1.5rem;

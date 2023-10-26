@@ -1,6 +1,6 @@
 # MovieApp
 
-## Tech Stack
+## 기술 스택
 
 <div>
   <img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white">
@@ -35,9 +35,7 @@
 
 ## 실행
 
-### 데모 링크
-
-[데모링크 바로가기](https://port-0-movieapp-12fhqa2blnajx18z.sel5.cloudtype.app/)
+https://port-0-movieapp-12fhqa2blnajx18z.sel5.cloudtype.app/
 
 <br/>
 <br/>

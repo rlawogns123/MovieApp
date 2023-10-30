@@ -44,30 +44,20 @@ https://port-0-movieapp-12fhqa2blnajx18z.sel5.cloudtype.app/
 
 ### 홈화면
 
-![1](https://github.com/rlawogns123/MovieApp/assets/73879034/9361ca46-c106-452d-a8ed-01b846d3001e)
-
 <br/>
 <br/>
-
-![2](https://github.com/rlawogns123/MovieApp/assets/73879034/1681b474-56f9-462b-ae73-b9bdb74b1bfc)
 
 <br/>
 <br/>
 
 ### 검색 페이지
 
-![3](https://github.com/rlawogns123/MovieApp/assets/73879034/25c866b6-4fb8-4fc0-a2c1-7fb45c10fe49)
-
 <br/>
 <br/>
 
 ### 회원가입, 로그인
 
-![4](https://github.com/rlawogns123/MovieApp/assets/73879034/bd5c5808-65e1-42c5-9480-c06cc9053818)
-
 <br/>
 <br/>
 
 ### 영화 상세 페이지
-
-![5](https://github.com/rlawogns123/MovieApp/assets/73879034/969ff4df-5ded-49fc-becd-56c6e73f032f)

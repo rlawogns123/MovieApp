@@ -163,7 +163,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   height: 100%;
 `,tE=q.div`
   position: absolute;
-  top: 52%;
+  top: 54%;
   left: 50%;
   height: 800px;
   width: 100%;

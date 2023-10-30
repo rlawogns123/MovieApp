@@ -38,7 +38,7 @@ const ModalWrapper = styled.div`
 
 const Player = styled.div`
   position: absolute;
-  top: 52%;
+  top: 54%;
   left: 50%;
   height: 800px;
   width: 100%;

@@ -32,7 +32,7 @@
 
 ## 실행
 
-https://port-0-movieapp-12fhqa2blnajx18z.sel5.cloudtype.app/
+~~https://port-0-movieapp-12fhqa2blnajx18z.sel5.cloudtype.app/~~
 
 <br/>
 <br/>
